@@ -1,5 +1,9 @@
 #class variables
 /
+Remember, when used inside of instance methods, self is representing the current instance (object) of that class.
+When defining class methods, self is referring to the class itself, and not to an instance of the class.
+/
+/
    Class Veriables : Ruby'de beşka diller gibi class için özel değişkenler ve metotlar oluşturabiliriz
    Bu değişkenler ve metotlar artık class'a ait.metot çağırırken class adı ile çağırılır
    Bu durumu java dilinde static kelimesi ile benzer durum. 
