@@ -27,17 +27,20 @@
 module Dice
     # virtual roll of a pair of dice (حجر النرد)
     def roll
-        r_1 = rand(6); r_2 = rand(6) #rand(6) rastgale bir değer atıyor lakin 0'dan 6'e kadar  
-        r1 = r_1 > 0 ? r_1 : 1 ; r2 = r_2 > 0 ? r_2 : 6
-        total = r1+r2
+        r_1 = rand(6) 
+        r_2 = rand(6) #rand(6) rastgale bir değer atıyor lakin 0'dan 6'e kadar  
+        r1 = r_1 > 0 ? r_1 : 1 
+        r2 = r_2 > 0 ? r_2 : 6
+        total = r1 + r2
         printf( "You rolled %d and %d (%d).\n", r1, r2, total )
         total
     end
     #Moudle method
     def Dice.roll
-        r_1 = rand(6); r_2 = rand(6) #rand(6) rastgale bir değer atıyor lakin 0'dan 6'e kadar  
+        r_1 = rand(6)
+        r_2 = rand(6)  
         r1 = r_1 > 0 ? r_1 : 1 ; r2 = r_2 > 0 ? r_2 : 6
-        total = r1+r2
+        total = r1 + r2
         printf( "You rolled %d and %d (%d).\n", r1, r2, total )
         total
     end        

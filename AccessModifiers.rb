@@ -25,6 +25,7 @@ class Person
     def days_lived
      "#{@age * 365}"
     end
+    
     public
     def mounth_lived
         "#{self.age * 12}" #Dikkat burda eğer age değşikeni attr_accessor ile tanımlamasak 
