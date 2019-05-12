@@ -32,9 +32,9 @@ module Runnable
 end
 
 class Human
-    include Walkable
-    include Speakable
-    include Runnable
+    include Walkable #Mixin
+    include Speakable #Mixin
+    include Runnable #Mixin
 end
 h = Human.new
 h.walk
