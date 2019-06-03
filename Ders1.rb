@@ -1,4 +1,4 @@
-#Class in Ruby (Object Orinted Programing) OOP
+#Class in Ruby (Object Orinted Programing with Ruby) OOP
 / 
   Şimdi bildiğimiz gibi her class içinde attirputes(properites) ve metot'lar vardır
   ve biz class olşturduğumuz zamnan bir tip oluşturuyoruz(int, String....vs)ardığndan 
@@ -10,8 +10,8 @@
 / 
   ruby'da bir calss tanımlamak için önce class kelimesi yazıyoruz ardığndan
   class'ın adı kouyuruz lakin dikkat etmemiz lazım class'ın adı ilk harf her zaman
-  büyük olmalıdır bu demek ki o class'i sabitmiş değişmez çünkü bildiğimiz gibi 
-  değişkenin ilk harfyi büyükse demek ki o değişken sabitmiş.
+  büyük olmalıdır bu demek ki o class'i sabitmiş değişmez çünkü bildiğimiz gibi Ruby'de
+  değişkenin ilk harfeyi büyükse demek ki o değişken sabitmiş.
   Eğer büyük harfeyi yazmasak programa hata verir.
   Example:
   class Student
@@ -30,19 +30,25 @@
   Class'ta  metot tanımlayacaksak ruby'deki metotlar aynı ile tanımlanabiliriz.
   yötemi hiç bir değişiklik yoktur.
   Example:
+
   def ortalama
 
   end
+
   attirbutes (Değişkenlere) gelelim Yöntem biraz farklı şu şekilde tanımlarız: 
-  @varabile_name; (instance variables) diyoruz
+  @varabile_name; (instance variables) diyoruz lakiun bunun nesne'nin metotlatın içinde tanımlanmalıyız
+  yoksa bu değişkeni eğer nesne'nin metotların dışında tanımlarsak yani calss'in içinde ama nesne'nin metotların dışında 
+  ya da class'in içinde ve class metotların içinde (self) tanımlarsak
+  o zaman bu değişken artık (instance variables) değil (class_instance_variable) olur. 
   Example:
-  @name, @age 
+  @name, @age (instance variable)
   Bu değişken artık Objcet'lere ait bir değişkendir ama bu değişkeni class
   hariçinden böyle erişemeiz (java'daki gibi değil) attr kelimesi kullanark erişilebiliriz.
-  Erişemk için üç tane yöntem vardır ve onlar şudur:
+  Erişemk için dört tane yöntem vardır ve onlar şudur:
   attr_reader : (Bu demek ki o değişkeni sadece oku yani üzerinde her hangi bir değişklik yapamayız)
   attr_writer : (Bu demek ki o değişkeni sadece üzerinde bir değişklik yap yani o değişkeni okuyamayız) 
   attr_accessor : (Bu demek ki o değişkeni hem oku hem üzerinde değişklik yap)
+  attr : (Bu demek ki o değişkeni hem oku hem üzerinde değişklik yap)
   Example:
   attr_accessor :name , :age
   Not : Tabi ki biz onları yerine get ve set metotları oluşturabiliriz lakni çok zahmetli olacak
@@ -68,7 +74,8 @@
   Not : Değişkenin değeri kesinlikle metodun içinde anack verebiliriz
   ve o metodun genellikle constructor metodu olur (initialize) metodu ancak 
   değişkenlerin değerleri orda verebiliriz.Bildiğimiz gibi constructor metodu
-  object oluşturduğumuz anda çalışır.O metodu hiç bir değer döndürmez.
+  object oluşturduğumuz anda çalışır.O metodu hiç bir değer döndürmez.ve o metod biz onu çağıramayız.Rybu otomatik
+  olarak oun object oluşturduğmuz anda çağırıyor.
   Not : Eğer attiribute değeri initialize metodudan başka matod içinde verirsek o metodu önce
   çağırmamız gerek yani class'in dışında ve object oluşturktan sonra biz o değişkeni 
   kullnmak istiyorsak once o metodun (içindeki değişkene verdiğimiz değer metod) çağırmamız gerek
@@ -81,43 +88,41 @@
   Not: Biz class'ında her hangi bir yerde yani metodun içinda 
   bir değişken tanımlarsak ama object değişkeni yani @değişken_adı
   biz artık bunu object değişkeni (instance variables) olur ve istediğimiz zaman object adı ile çağırabiliriz 
-  lakin dikkat etmemiz gereken husu o değişkeni (attr_   ) olarak tanımlamız gerek
+  lakin dikkat etmemiz gereken husu o değişkeni (attr_accessor) olarak tanımlamız gerek
   ya da set ve get metodu tanımlamabiliriz.Get metodu değişken adı ile aynı tanımlarsak 
   daha iyi ve set metodu değişken metodu= ile eşit işareti tanımlarsak daha iyi
 /
 /
   kural : Eğer değişkeni class'da tanımladık yani (attr_accessor :değşken_adı)
   ve bu değişken calss'inda bir kac tane metoda kullnmak istiyorsak @ symbolu
-  olmadan kullanabiliriz, lakin eğer o değişkeni ordaki metoda değer vereckesek mutlaka 
-  @ symplou kullanmamız gerek.
+  olmadan kullanabiliriz ama attr ile tanımlamak zourndayıyz hata self anahtarı da kullanabiliriz, 
+  lakin eğer o değişkeni ordaki metoda değer vereckesek mutlaka 
+  @ symplou kullanmamız gerek.ya da self anahtarı kullanırız ama o değişken attr ile tanımlamak zorunda
   Eğer o değişkeni (attr) ile tanımlamasak ve başka mtodu kullanmak istyorsak 
   mutlaka @ symbolu koymamız gerek yoksa program hata verir.
-  lakiiin dikkat her zaman bu değişken initialize metoda @ ile tanımlamaız gerek.
   Kural : instance varabile ona bir değer atmak için kesinlikle 
-  metotlar içişnde olmalıdr ve aynı anda @ symbolu koyulmalıdır.
-  Not : Eğer object değişkeni bir değer verceksek yukardı dedik ki ile @ symbolu koymalıyız
-  ama bir yöntem daha var @ symbolu yerine istersek (self).değişken_adı koyabiliriz
+  metotlar içinde olmalıdr ve aynı anda @ symbolu koyulmalıdır ya da self anahtaı kullanırız eğer o attr ile tanımlarsa.
   
 /
 class Student
   
     attr_accessor :isim , :shcool_name, :class_number , :name , :orta , :state
     # @isim = "ahmet" Hiç bir şey olamyacak ve değer kaydetmeyecek onu ekrana yazdırırsak boş satır verecek
-
+    #zaten bu değişken class instance değişkenidir  
     #constructor metodu
     def initialize(shcool_name , class_number)
-        @shcool_name = shcool_name
+        @shcool_name = shcool_name #Not : @ sembolun yerine self koyabiliriz.
         @class_number = class_number
         @orta = 0
         @state = "None"
     end
     #öğrencinin ortalanması hesaplayacak metod
     def ortalama (vize_not, final_not)
-        @orta = ((vize_not * 40) / 100) +  ((final_not * 60) / 100) 
+        self.orta = ((vize_not * 40) / 100) +  ((final_not * 60) / 100) 
     end
     #öğrencinin durumu Belirtilecek metod
     def student_state()
-        if(orta >= 50) #Dikkat orta değşkeni yukarda tanımladığımız için @ symbolu koymadık çünkü burda sadec o değişkeni kullanıyoruz ona her jangi bir değer atmıyoruz Eğer onar değer atsaydık o zaman mutlaka > symbolu koymamız gerek.
+        if(orta >= 50) #Dikkat orta değşkeni yukarda tanımladığımız için @ symbolu koymadık çünkü burda sadec o değişkeni kullanıyoruz ona her hangi bir değer atmıyoruz Eğer ona değer atsaydık o zaman mutlaka @ symbolu koymamız gerek.
             @state = "successful"
         else 
             @state = "Deposit"

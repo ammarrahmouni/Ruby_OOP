@@ -17,6 +17,7 @@ class Person
     def initialize(age)
       @age = age
     end
+
     def show
        "#{@age} years = #{days_lived} days, #{@age} years = #{mounth_lived} mounth"
     end
@@ -25,11 +26,11 @@ class Person
     def days_lived
      "#{@age * 365}"
     end
-    
+
     public
     def mounth_lived
         "#{self.age * 12}" #Dikkat burda eğer age değşikeni attr_accessor ile tanımlamasak 
-                           #o zaman self anahtarı koyamayız ile @ symbolu koymak zorundayız
+                       #o zaman self anahtarı koyamayız ile @ symbolu koymak zorundayız
     end
 end
   
@@ -51,7 +52,7 @@ Access modifiers can be applied only to methods. Instance variable are always pr
 Burda demek ki Eğer bir private method bir class içinde çağıracaksak ve o metdoun önce 
 self anahtarı yazarsak hata verecek çünkü self genellikle object adı yerine gelir oysa ki 
 burda metod private olduğu için kesinlikle object adı ile çağıramayız.
-Hata Burda other.id hatalıdır çünkü other yerine bir object geleceği için hata verir.
+Hatta Burda other.id hatalıdır çünkü other yerine bir object geleceği için hata verir.
 /
 class Private
     attr_accessor :name, :num

@@ -14,7 +14,7 @@ class Shape
         self.h = h
         self.w = w
     end
-
+ 
     def +(other)
         Shape.new(self.h + other.h, self.w + other.w)
     end

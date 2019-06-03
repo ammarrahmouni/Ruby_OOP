@@ -1,18 +1,18 @@
 class Repeat
-    @@total = 0
 
     def initialize( string, times )
         @string = string
         @times = times
+        @@total = 0
     end
 
     def repeat
         @@total += @times
-        return @string * @times
+        @string * @times
     end
 
     def total
-        "Total times, so far: " + @@total.to_s
+        "Total times, so far: " + @@total.to_s #Type casting from int to String @@total.to_s
     end
 
 end
@@ -30,4 +30,3 @@ def main
     puts ditty.total
 end
 main
-    

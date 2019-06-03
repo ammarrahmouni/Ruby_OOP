@@ -3,9 +3,9 @@
 /
 
 /
-    A class'inda (@@class_variable) bir değşiken tanımladık bildiğimiz üzere by değişken 
+    A class'inda (@@class_variable) bir değşiken tanımladık bildiğimiz üzere bu değişken 
     class'a ait bir değişkendir.ve o değşikeni erişmek için onun aynı adı bir class metodu oluşturuz
-    ve o metodu o değişkenin değeri dödürür.ardığından (class_adı.metot_adı) o yöntemi kullanarak 
+    ve o metodu o değişkenin değeri döndürür.ardığından (class_adı.metot_adı) o yöntemi kullanarak 
     orakdi değişkeni erişebiliriz.
 /
 
@@ -17,11 +17,12 @@
 
 /
     A class'inda (@class_instance_variable) bir değişken tanımladık ama burda dikkat etmeliyiz
-    bu değişken nesnelere ait bir dğişken deiğldir çünkü onun değeri bir metodun içinde vermedik
+    bu değişken nesnelere ait bir dğişken deiğldir çünkü onun değeri bir instance metodun içinde vermedik
     class'ta verdik.o değişkenin adı sınıf nesne değişkeni
     hata bu değişken class << self içinde attr ile tanımladık bildiğimiz üzere bu kısım 
     class metotlar içind kullanılır.ardığında o değişken erişmek için (class_adı.değişken adı)
     erişilebiliriz.Lakin dikkat edelim o değişken class << self kısmında attr yaparak tanımlanmalıyız.
+    ya da bir class metod oluşturuoruz ve o metod o değişkenin değeri döndüryor
 
 /
 
@@ -49,6 +50,13 @@
     çocuk sınıflarda bu değişken yazdırısak hata vermez lakni boş satır üretirir. onu boş satır
     üretmemesi için kesinlikle çocuk sınıflarda o değişkenin değer vermesi gerekir.
 /
+/
+    Not : bir class içinde ve class metotların içinde ve instance metodların dışında self kullanırsak
+    demek ki self yerine class adı gelir.ama eğer self kelimesi instance metotlarin içinde 
+    kullanılmışsa bunu demek ki self yerine o class'tan oluşturduğumuz nesne koyar.
+/
+
+# Not : (attr and attr_reader) aynı
 
 # Yardımcı
 def dump(p)
@@ -65,11 +73,12 @@ class A
     @class_instance_variable = "#{self}_class_instance_variable"
   
     def initialize
-        #burda self demek object aadı( #<A:0x22609b0> )
+        #burda self demek object adı( #<A:0x22609b0> )
       @instance_variable = "#{self}_instance_variable"
     end
   
     class << self
+    #Burda (class_instance_variable) değişkeni class adı ile ulaşmak için attr ile tanımladık ve bu kısmına tanımladık 
       attr :class_instance_variable
       def class_variable
         @@class_variable
@@ -113,3 +122,20 @@ dump 'C::CONSTANT'
 dump 'C.class_variable'
 dump 'C.class_instance_variable'
 dump 'c.instance_variable'
+
+/
+class A
+    attr :x
+    @x = 10
+    def initialize
+        @x = 15
+    end
+    class << self
+        attr :x
+    end
+end
+a = A.new
+puts A.x
+puts a.x 
+#Not : instance_variable ve class_instance_variable değişkenler birbirine bağomsızdır ve aynı adı ile koyabiliriz.
+/

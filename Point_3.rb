@@ -29,7 +29,6 @@ class Point
       @x < other.x or @x == other.x
     end
 
-    #Bu metot istersek yazmayabiliriz ve çağırdığında hiçbir sorun olmaz tek bir eşit işareti kouyamayız
     def == (other)
       @x == other.x and @y == other.y
     end
@@ -41,7 +40,7 @@ class Point
 end
   
 def main
-    p, q = Point.new(9, 10), Point.new(9, 7)
+    p, q = Point.new(9, 7), Point.new(9, 7)
     puts "#{p} noktası #{q} noktasının " + (p < q ? 'solunda' : 'sağında')
     puts  "p > q : #{p > q}"
     puts  "p < q : #{p < q}"

@@ -36,7 +36,7 @@ class Point
     def equal?(other)
       @x == other.x and @y == other.y
     end
-  
+   
     def move(x, y)
       @x += x
       @y += y

@@ -21,7 +21,7 @@
     object oluşturamayız 
     Not : Module içinde bir moudle metodu tanımalnabiliriz tıbki class metodu 
     ve o metodu tanımladıktan sonra istediğimiz yerde (tabi ki dosyanın içinde)
-    çağırabiliriz.olşturması tıbki class metod gibi  module_adı.method_adı
+    çağırabiliriz.olşturması tıbki class metod gibi  module_adı.method_adı yada self.metjod_adı
     çağırmak aynı şekildedir.
 /   
 module Dice
@@ -97,6 +97,5 @@ def main
     puts "----------------"
     printf("Dice.roll methodu: ") 
     Dice.roll #Module method çağırmak
-
 end
 main()

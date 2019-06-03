@@ -54,7 +54,7 @@ class Point
     class << self #ya da Point yazabiliriz
       /
         origin metot bir object oluşturyor yani biz şunu yapabiliriz:
-        r = Point.origin ; (r = Point.new ) aslında aynı şey
+        r = Point.origin = (r = Point.new(x,y) ) aslında aynı şey
         artık şimdi biz bir (r) object oluşturduk lakin bu object x ve y 
         değerleri her zaman 0 olacaktır
       /
@@ -75,8 +75,9 @@ def main
     puts "Nokta sayısı origin metodu çağırmadan önce: #{Point.population}"
     puts  "Point.origin : #{Point.origin}"
     puts  "Point.origin : #{Point.origin}"
-    # r = Point.origin dogru bir object oluşturduk
+    r = Point.origin  # dogru bir object oluşturduk
     puts "Nokta sayısı origin metodu çağırdıktan sonra: #{Point.population}"
+
    
 end
   

@@ -24,8 +24,17 @@ end
 # Araba
 class Car
   extend Forwardable
-  def_delegators :@engine, :start, :stop
+  def_delegators :@engine, :start, :stop #metodların sayı ne kadar olursa olsun
+  #Aslında Yukardaki satır şu işlem gerçekleştirilmiş:
+  /
+  def start
+    @engine.start
+  end 
 
+  def stop
+    @engine.stop
+  end
+  /
   def initialize
     @engine = GasolineEngine.new
   end

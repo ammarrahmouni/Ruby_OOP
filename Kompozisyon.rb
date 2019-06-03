@@ -1,6 +1,12 @@
 #!/usr/bin/ruby
 # encoding: utf-8
-
+/
+  Kompozisyon : özetle biz bir class oluşturyoruz ardığından başka bir class oluşturyoruz 
+  ama o class'lar birbirlerine bağımsız ardığından o class'indan birisi bir instance variable 
+  oluşturyoruz ama bu veriable aynı andan diğer class'indan bir object'tir.şimdi artık
+  o değişken o class'indan bir kopyalısıdır ve ordaki tüm özellikler sahip oldu aynı
+  anda o object bulunduğu class'in içinde o özellikleri kullanabilir.
+/
 class Engine
     # Motor'la ilgili tüm ortak akıl burada...
     def start
@@ -35,3 +41,4 @@ car.sunday_drive
     "Araba motora sahip bir Araçtır"
     Bakın bu farklı bir model
 /
+

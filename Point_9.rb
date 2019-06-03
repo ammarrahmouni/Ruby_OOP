@@ -7,7 +7,7 @@ class Point
 
   ORIGIN = 0, 0
   NAME   = 'nokta'
-
+  
   def initialize(x, y)
     @x, @y = x, y
   end
@@ -103,4 +103,11 @@ def main
 end
 
 main if __FILE__ == $PROGRAM_NAME
+puts "----------"
+puts Point::NAME
+puts Circle::NAME
+puts Square::NAME
+puts "----------"
+puts Point.name
 puts Circle.name
+puts Square.name

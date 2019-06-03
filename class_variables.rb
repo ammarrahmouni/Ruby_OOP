@@ -12,19 +12,19 @@ When defining class methods, self is referring to the class itself, and not to a
    class metotu tanımlamak için bir yöntem daha vardır : 
       class << self (ya da class adı koyarız fark etmez)
          def metot_adı
-            #Artık bu metot class bir netotur
+            #Artık bu metot class bir metotur
          end
       end
    burda self java dilinde this gibi.Lakin çağırırken self ile çağırılamayaız class adı ile çağrırız
    Not : bu metotlar kullanmak için objectleri oluşturmayı gerek yok.
-   Eğer attirbute class (class değişkeni) attr_accessor onu tanımlarsak ve object 
-   ile yazdırmak istersek ekranda hiç bir şey çıkmayacak, lakin eğer onu attr_accessor
-   tanımlamasak ve object ile yazdırmak istiyorsak program hata verir.
-   Ama metot class object ile yazdırmak istersek hata verecek 
+   Eğer bir instance değişken attr ile tanımlasak lakin ona class'ta her hangi bir değer vermesek
+   ve onu yazdırmak istiyorsak ekran'da boş bir satır çıkacak lakin ona attr ile tanımlamasak
+   ve onu değer verib yada vermesin ardığından onu yazdırmak istiyorsak program hata verir.
+   Ama metot class ve değişken class object ile yazdırmak istersek hata verecek 
    Not : attirbute class ; class adı ile çağırılamayız (java'daki gibi değil yani)
    çağrırsak hata verir.
    Beki o zamna o attirbute değerini nasıl alırız ? Şöyle
-   Bir metot_class ya da metot_object tanımlarız ardığından o metotu çağırırız.
+   Bir metot_class ya da metot_object tanımlarız bu metotların o değişkenin değeri döndürür ardığından o metotu çağırırız.
    Not : You must initialize a class attribute before you use it.
 /
 /
@@ -35,9 +35,17 @@ When defining class methods, self is referring to the class itself, and not to a
    class içinde eğer onu kullanmak istiyorsak @ symbolu koymayı bilirdik, lakin class değişkeni
    class'in içinde her hangi bir yerde kullanmak istyorsak @@ symbolu koymak zorundayız
    koymasak hata verir.
+   3- class değişkeni bütütn oluşturduğumuz objectler hepsini o değişkeni ortak'dır
+   lakni instace değişkeni her object kendi değişkene özeldir
+/
+/
+   Bir sınıf gövdesi içinde @@var değişkenleri sınıf kapsamında geçerli bir tür global değişken olarak davranır
+   Sınıf değişkenleri o sınıftan miras alan tüm çocuk sınıflarca erişilebilir ve değiştirilebilir
+   Bu “global değişken” etkisi isteniyorsa sınıf değişkenleri doğru çözümdür
+   Sadece ilgili sınıfa ait bir değişken isteniyorsa “sınıf nesne değişkenleri” kullanılmalı
 /
 class Song 
-   attr_reader :playrs, :play
+   attr_reader :play
    @@playrs = 0  #class attirbute
    
    def initialize(play, playrs)
@@ -74,7 +82,6 @@ def main
    puts "s1.play : #{s1.play}"
    puts "s2.play : #{s2.play}"
    # puts Song.playrs; !Hata! dikkat 
-   # puts s1.playrs; Hiç bir şey çıkmayacak 
    # puts s1.total_plays; !Hata!
    s1.playr
    puts "s1.total : #{s1.total}"
@@ -82,7 +89,6 @@ def main
    s2.playr
    puts "s2.total : #{s2.total}"
    Song.total_plays
-   puts s1.playrs
 end
 
 main

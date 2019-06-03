@@ -10,10 +10,23 @@
 class Calc
     PI = 3.14
     Today = "Sunday"
+    /
+    def asd
+        T = 10; Hata
+    end
+    /
+    # PI = 3.145 warning verir hata vermez ve o değer kaydeder
+end
+
+class Arc < Calc
+    Today = "Monday"
 end
 /
     You can access constants using the class name,
     followed by two colon symbols (::) and the constant name, for example:
 /
 puts Calc::PI
-puts Calc::Today
+puts Calc::Today 
+puts "-----------"
+puts Arc::PI
+puts Arc::Today

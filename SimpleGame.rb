@@ -27,7 +27,7 @@ end
     to_s outputs the player information.
     We have also defined getter and setter accessors for the instance variables using the attr_accessor method.
 /
-
+ 
 def fight(p1, p2)
     while p1.isAlive && p2.isAlive
       p1.hit(p2)

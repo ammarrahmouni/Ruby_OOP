@@ -76,7 +76,7 @@ class Point
     def to_s
         "#{@r}@#{super_to_s}"
     end
-  
+   
     # FIXME Point'te overload edilen bazı işleçler
     # örneğin +, ==, çocuk sınıfta anlamlı değil.
 end

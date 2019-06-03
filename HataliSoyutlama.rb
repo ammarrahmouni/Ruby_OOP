@@ -11,9 +11,9 @@ class Vehicle
     def stop_engine
       puts "dur"
     end
-  end
+end
   
-  class Car < Vehicle
+class Car < Vehicle
     # Hafta sonu turu
     def sunday_drive
       start_engine

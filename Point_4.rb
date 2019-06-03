@@ -4,7 +4,7 @@
 class Point
     attr_reader :x, :y
   
-    ORIGIN = 0, 0
+    ORIGIN = 0, 0 #Bu bir dizidir ama sabit bir dizi
   
     @@population = 0
   
@@ -37,6 +37,9 @@ class Point
       @x += x
       @y += y
       self
+    #Dikkat!! self burda demeki (to_s) methodunu çağır; yani Biz move methodunu çağırdımıızda 
+    #önce o methodun içindeki işlemi yapacak sonra self en son satır yazdığımız dolay move methoda
+    #(to_s) metodu dödürecek Eğer self son satır olmasayıdı (to_s) methodu döndürmeyecek.
     end
   
     def to_s
@@ -70,6 +73,7 @@ def main
     puts "x_object.x_attirbute : #{x.x}"
     puts "x_object.y_attirbute : #{x.y}"
     puts Point.origin
+    puts x.move(2,5)
     
 end
   

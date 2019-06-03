@@ -44,7 +44,7 @@ class Point
     end
   
     # Sınıf metodları
-  
+   
     # FIXME: Zaten Point sınıfındayız, açıkça yazmamız gerekiyor mu?
     def Point.origin
       # new metodunun alıcısı kim?  self

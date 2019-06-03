@@ -13,7 +13,6 @@
 /
 class Point
   attr_reader :x, :y
-
   ORIGIN = 0, 0
 
   def initialize(x, y)
@@ -61,7 +60,7 @@ class Point
     def origin
       new(*ORIGIN)
     end
-    #????
+    
     def distance(here, there = nil)
       there ||= origin
       Math.sqrt((here.x - there.x)**2 + (here.y - there.y)**2) #Math.sqrt(4) #=> 2 Bu metot bri sayının köküsü döner
@@ -77,20 +76,23 @@ class Circle < Point
     super x, y # FIXME DRY değil; neden x, y ayrıca geçiyor?
     @r = r
   end
+
   #Bu method dairenin çevrimi hasaplayacak
   def perimeter
-    / Math::PI; Math bir Module PI bir class'tir PI değeri 3.1415.... 
+    / Math::PI; Math bir class'tir ve PI bir sabit değişken ve onu ulaşma yöntemi şudur. 
       sadece PI yazsaydık hata verir çünkü bu class Module Math içinde  /
     2 * Math::PI * @r 
   end
+
   #Bu metho dairenin karesi hesaplayacak
   def area
     Math::PI * @r**2
   end
+
   #Bu method object ekrana yazdırığımızda ordaki Text yazdırır.
   def to_s
     # FIXME Neden x, y?  DRY değil
-    #Burdda self'i kullanmayabiliriz
+    #Burdda self'i kullanmayabiliriz ve @ de kullanmayabiliriz
     "#{@r}@(#{self.x},#{self.y})"
   end
 

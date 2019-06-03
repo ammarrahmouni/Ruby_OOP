@@ -61,6 +61,6 @@ def main
     puts "p.move(2 , 3) = #{p.move(2,3)}"   #Burda En son satırı dönürecek yani yazdıracak o da y'nin toplamı
     puts "p noktası yeni değeri #{p}"  #Burda p noktası move metodu çağırdıktan sonra yeni değeri
 end
-  
+   
 main
   

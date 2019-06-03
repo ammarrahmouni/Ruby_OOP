@@ -21,6 +21,9 @@
     çünkü ruby otoamatik olarak child class'indaki metoduna gönderdiğimiz değer otomatik olarak
     parent class'indaki metouna gönderir, ama eğer göndermeyi istiyorsak kesinlikle
     ordaki parametrnein sayılara göre göndeririz ne eksik ne de fazla 
+    Not : class metod ve class değişken miras yaparken onları da çoçuk sınıfı sahip oluyor
+    şimdi bildiğimiz gibi super class'inda class metod çağırıken metot adı ile kullanırken çağırıyoruz 
+    aynı şey çoçuk sınıflarda yapıyoruz.
 /
 class Human
     attr_accessor :name, :age, :long, :weight

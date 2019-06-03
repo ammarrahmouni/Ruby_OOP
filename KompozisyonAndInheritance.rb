@@ -13,9 +13,9 @@ end
 
 class GasolineEngine < Engine
     # Benzinli Motor
-  end
+end
   
-  class DieselEngine < Engine
+class DieselEngine < Engine
     # Dizel Motor
 end
 
